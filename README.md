@@ -1,2 +1,2 @@
 # portfolio-2
-Stat 479 portfolio 2 assignment
+Fertility rate for states in United State from 2014 to 2020.
