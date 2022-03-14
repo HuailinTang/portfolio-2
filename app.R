@@ -39,7 +39,7 @@ ui <- fluidPage(
       width = 2
     ),
     mainPanel(
-      plotOutput("graph_1", width = "1150px", height = "900px"),
+      plotOutput("graph_1", width = "1150px", height = "870px"),
       dataTableOutput("table_1")
     )
   )
@@ -61,18 +61,17 @@ server <- function(input, output, session) {
   output$graph_1 <- renderPlot({
     ggplot(table_1(), aes(x=Year, y=Fertility_rate, # color line by region
                           group=interaction(State, Region), color=Region)) + 
-      geom_line() +       
-      theme(legend.position = "bottom", axis.title = element_text(size = 14), axis.text = element_text(size =10)) +
-      title("Fertility rate from 2014-2020") +
-      ylab("Fertility rate") +
-      scale_color_brewer(palette = "Set2") +
-      geom_text_repel(aes(label = State))
-    # geom_dl(aes(label = State), 
-    #         method = list(dl.trans(x = x - .2), "last.points"), 
-    #         list('last.bumpup')) +
-    # geom_dl(aes(label = State), method = list(dl.trans(x = x + .2), 
-    #                                       "first.points")) 
-  }, height = 900, width = 1150)
+    geom_line() +       
+    theme(legend.position = "bottom", axis.title = element_text(size = 16), 
+          axis.text = element_text(size =12), panel.grid.major.y = element_blank(),
+          legend.text=element_text(size=12)) +
+    title("Fertility rate from 2014-2020") +
+    ylab("Fertility rate") +
+    scale_color_brewer(palette = "Set2") +
+    geom_text_repel(aes(label = State), size = 5,
+                    data = filter(table_1(), Year %in% c(14,20)), 
+                    show.legend = FALSE)
+  }, height = 870, width = 1150)
   
   output$table_1 <- renderDataTable({
     table_1()
