@@ -16,7 +16,6 @@ library(directlabels)
 library(ggrepel)
 ```
 
-# 1. 
 I used the fertility_rate dataset from CDC. The dataset has data of fertility rate for each state in U.S. from 2014-2020. In this portfolio assignment, I visualized the fertility rate for each state from 2014 to 2020. 
 
 Some interesting fact: Firstly, between 2014 to 2020, states in Midwest and West have highest fertility rate in the U.S.; while Northeast always have lowest fertility rate in the U.S. Secondly, fertility rates in all states are decreasing, no matter what region they are in. Thirdly, the decreasing rates of fertility rate seems stable in these 7 years, which are surprising because most people believe Covid-19 is the most main reason of the drop of fertility rate.
